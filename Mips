@@ -1,0 +1,55 @@
+#include <stdio.h>
+void prepareData(int *,int *,int *,int);
+int processData(int *,int);
+void displayResult(int,int);
+int main()
+{
+    static int data0[20]={35,-34,82,-95,-2,22,-17,80,-67,-39,64,94,-96,95,-70,-63,69,-3,75,-10};
+    static int data1[10];
+    static int data2[10];
+    int size0=20;
+    int size12=10;
+    int number1,number2;
+    prepareData(data0,data1,data2,size0);
+    number1=processData(data1,size12);
+    number2=processData(data2,size12);
+    displayResult(number1,number2);
+
+    return 0;
+}
+
+void displayResult(int number1,int number2)
+{
+    int result=number1+number2;
+    printf("Assignment 3\n");
+    printf("------------\n");
+    printf("Result:   \n");
+    printf("%d",result);
+    printf("\n");
+}
+
+void prepareData(int *data0,int *data1,int *data2,int size0)
+{
+    int i,j=0,l=0;
+    for(i=0;i<size0;i++)
+    {
+        if(data0[i]%2==0)
+            data2[j++]=data0[i];
+        else
+            data1[l++]=data0[i];
+    }
+}
+   
+int processData(int *data,int size12)
+{
+    int i,add=100;
+    for(i=0;i<size12;i++)
+    {
+        if(i%2==0)
+            add=add+data[i];
+        else
+            add=add-data[i];
+        
+    }
+    return add;
+}
